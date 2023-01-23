@@ -1,0 +1,143 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: µVision V5.37.0.0
+Copyright (C) 2022 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: mahmut hilmi kaya, abdullah gul üniversity, LIC=----
+ 
+Tool Versions:
+Toolchain:       MDK-Lite  Version: 5.37.0.0
+Toolchain Path:  C:\Keil_v5\ARM\ARMCLANG\Bin
+C Compiler:      ArmClang.exe V6.18
+Assembler:       Armasm.exe V6.18
+Linker/Locator:  ArmLink.exe V6.18
+Library Manager: ArmAr.exe V6.18
+Hex Converter:   FromElf.exe V6.18
+CPU DLL:         SARMCM3.DLL V5.37.0.0
+Dialog DLL:      DCM.DLL V1.17.5.0
+Target DLL:      UL2CM3.DLL V1.164.7.0
+Dialog DLL:      TCM.DLL V1.56.1.0
+ 
+<h2>Project:</h2>
+C:\Users\hilmi\Desktop\line-follower\compile\compile.uvprojx
+Project File Date:  01/15/2023
+
+<h2>Output:</h2>
+*** Using Compiler 'V6.18', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
+Build target 'Target 1'
+main.c(23): warning: no previous extern declaration for non-static variable 'error_vector' [-Wmissing-variable-declarations]
+int error_vector[8] = { -20, -15, -10, -5, 5, 10, 15, 20 };
+    ^
+main.c(23): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+int error_vector[8] = { -20, -15, -10, -5, 5, 10, 15, 20 };
+^
+main.c(24): warning: no previous extern declaration for non-static variable 'proportionalerror' [-Wmissing-variable-declarations]
+int proportionalerror = 0;
+    ^
+main.c(24): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+int proportionalerror = 0;
+^
+main.c(25): warning: no previous extern declaration for non-static variable 'KP' [-Wmissing-variable-declarations]
+double KP = 3.3989;
+       ^
+main.c(25): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+double KP = 3.3989;
+^
+main.c(26): warning: no previous extern declaration for non-static variable 'KD' [-Wmissing-variable-declarations]
+double KD = 6.0484;
+       ^
+main.c(26): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+double KD = 6.0484;
+^
+main.c(27): warning: no previous extern declaration for non-static variable 'KI' [-Wmissing-variable-declarations]
+double KI = 0.00015;
+       ^
+main.c(27): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+double KI = 0.00015;
+^
+main.c(50): warning: '&' within '|' [-Wbitwise-op-parentheses]
+                RCC->CFGR = RCC->CFGR & (RCC_CFGR_PLLMULL_2) | (RCC_CFGR_PLLMULL_1)| (RCC_CFGR_PLLMULL); /* (6)) */
+                            ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~ ~
+main.c(50): note: place parentheses around the '&' expression to silence this warning
+                RCC->CFGR = RCC->CFGR & (RCC_CFGR_PLLMULL_2) | (RCC_CFGR_PLLMULL_1)| (RCC_CFGR_PLLMULL); /* (6)) */
+                            ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~
+main.c(31): warning: no previous prototype for function 'PLLClockConfiguration' [-Wmissing-prototypes]
+void PLLClockConfiguration()
+     ^
+main.c(31): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void PLLClockConfiguration()
+^
+static 
+main.c(31): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
+void PLLClockConfiguration()
+                          ^
+main.c(109): warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
+        int numberofSensors = 0;
+            ^
+main.c(151): warning: no previous prototype for function 'initClockHSI' [-Wmissing-prototypes]
+void initClockHSI (void)
+     ^
+main.c(151): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void initClockHSI (void)
+^
+static 
+main.c(214): warning: implicit conversion turns floating-point number into integer: 'double' to 'int32_t' (aka 'int') [-Wfloat-conversion]
+                output = proportionalPosition * KP + derivativePosition * KD    + integralPosition * KI;
+                       ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+main.c(214): warning: implicit conversion from 'int64_t' (aka 'long long') to 'double' may lose precision [-Wimplicit-int-float-conversion]
+                output = proportionalPosition * KP + derivativePosition * KD    + integralPosition * KI;
+                                                                                  ^~~~~~~~~~~~~~~~ ~
+main.c(222): warning: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [-Wimplicit-int-conversion]
+                        TIM1->CCR1 = MaximumPWM + output;
+                                   ~ ~~~~~~~~~~~^~~~~~~~
+main.c(226): warning: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [-Wimplicit-int-conversion]
+                        TIM1->CCR4 = MaximumPWM - output;
+                                   ~ ~~~~~~~~~~~^~~~~~~~
+main.c(230): warning: no newline at end of file [-Wnewline-eof]
+}
+ ^
+main.c(171): warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
+        int32_t currentPositionError = 0;
+                ^
+16 warnings generated.
+compiling main.c...
+linking...
+Program Size: Code=3636 RO-data=268 RW-data=56 ZI-data=1632  
+FromELF: creating hex file...
+".\Objects\compile.axf" - 0 Error(s), 16 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.9.0.pack
+                ARM.CMSIS.5.9.0
+                CMSIS (Common Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.6.0
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.STM32F1xx_DFP.2.4.0.pack
+                Keil.STM32F1xx_DFP.2.4.0
+                STMicroelectronics STM32F1 Series Device Support, Drivers and Examples
+   * Component: Startup Version: 1.0.0
+
+<h2>Collection of Component include folders:</h2>
+  ./RTE/Device/STM32F103C8
+  ./RTE/_Target_1
+  C:/Users/hilmi/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include
+  C:/Users/hilmi/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.6.0
+
+   * Component: Keil::Device:Startup:1.0.0
+      Source file:   Device/Source/ARM/startup_stm32f10x_md.s
+      Source file:   Device/Source/system_stm32f10x.c
+      Source file:   Device/Source/ARM/STM32F1xx_OPT.s
+      Include file:  RTE_Driver/Config/RTE_Device.h
+Build Time Elapsed:  00:00:01
+</pre>
+</body>
+</html>
